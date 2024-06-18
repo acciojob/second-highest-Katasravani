@@ -11,8 +11,14 @@
 		function secondHighest(arr) {
 			//Write your code here
 			arr.sort();
-			let second=arr[arr.length-2];
-			return second;
+			if(arr.length==1 || arr.length==0 || arr.sort()==arr){
+				return "-Infinity"
+			}
+			else if (arr.length>1) {
+				let second=arr[arr.length-2];
+				return second;
+			}
+			
 			
 			
 		}
