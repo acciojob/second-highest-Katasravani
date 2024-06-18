@@ -10,17 +10,31 @@
 	<script>
 		function secondHighest(arr) {
 			//Write your code here
-			arr.sort();
-			if(arr.length==1 || arr.length==0 || arr.sort()==arr){
-				return "-Infinity"
+			 if (arr.length < 2) {
+		        return -Infinity;
 			}
-			else if (arr.length>1) {
-				let second=arr[arr.length-2];
-				return second;
-			}
-			
-			
-			
+
+    // Initialize variables to store the highest and second-highest values
+    let highest = -Infinity;
+    let secondHighest = -Infinity;
+
+    // Iterate through the array to find the highest and second-highest values
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > highest) {
+            secondHighest = highest;
+            highest = arr[i];
+        } else if (arr[i] > secondHighest && arr[i] !== highest) {
+            secondHighest = arr[i];
+        }
+    }
+
+    // Check if all elements are the same
+    if (secondHighest === -Infinity) {
+        return -Infinity;
+    }
+
+    return secondHighest;
+
 		}
 
 		
@@ -33,6 +47,8 @@
 			alert(secondHighest(arr));
 		}
 		Main();
+		
+		
 	</script>
 
     <script type="text/javascript" src="./script.js">
